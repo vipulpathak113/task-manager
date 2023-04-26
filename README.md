@@ -10,3 +10,7 @@ Also using unknown type we should have to check the type before using it.
     - int can be used for number max upto **2^53**. For number greater than that we can use BigInt
     - Cannot be defined as **decimal value**
     - Cannot use **Math** object on BigInt
+
+- **never** type means code terminates after that    
+- A **tuple** type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+    ``` type StringNumberPair = [string, number];```
