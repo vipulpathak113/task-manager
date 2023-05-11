@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 
 import { customTheme } from './theme/customTheme';
 
