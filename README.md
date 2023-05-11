@@ -14,3 +14,11 @@ Also using unknown type we should have to check the type before using it.
 - **never** type means code terminates after that    
 - A **tuple** type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
     ``` type StringNumberPair = [string, number];```
+- PropTypes vs Interface:
+    - Interface:
+        - Not transpiled to js
+        - Typescript throw error on compile time
+
+    - PropTypes:
+        - Transpiled to js
+        - Throw error on runtime     
