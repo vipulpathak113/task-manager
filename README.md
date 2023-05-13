@@ -96,7 +96,7 @@ Also using unknown type we should have to check the type before using it.
 
             // ❌ ERROR: Duplicate identifier "User"
             ```
-        - For extending, type uses intersection
+        - For extending, type uses **intersection**
             ```js
            type Car = {
                 model: string;
