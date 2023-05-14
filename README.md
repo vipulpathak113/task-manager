@@ -117,7 +117,13 @@ Also using unknown type we should have to check the type before using it.
             ```js
             /// ✅ CORRECT: you can create union type like this
             type Person = User | Admin;
-            ```        
+            ```       
+
+- **Decorators:** Decorators are functions that can be attached to classes and their members, such as methods, and properties.
+    - They are only called once
+    - Called when class in defined
+    - Called before class initilization i.e object creation
+    - used with @ above the class             
               
 
 
