@@ -123,7 +123,10 @@ Also using unknown type we should have to check the type before using it.
     - They are only called once
     - Called when class in defined
     - Called before class initilization i.e object creation
-    - used with @ above the class             
+    - used with @decoratorName   
+    - when used with class it requires only one parameter i.e **contructor fn**
+    - when used with method it requires 3 paramters: **class prototype,method name and descriptors**
+    - when used with paramter it requires 3 paramters: **class prototype,method name and index** // here method name in which method paramter is used and index denoted at which position is arguments in function             
               
 
 
