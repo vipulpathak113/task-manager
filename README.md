@@ -11,6 +11,9 @@ Also using unknown type we should have to check the type before using it.
     - Cannot be defined as **decimal value**
     - Cannot use **Math** object on BigInt
 
+
+![Typescript image](./typescriptTypes.jpeg) 
+
 - **never** type means code terminates after that    
 - A **tuple** type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
     ``` type StringNumberPair = [string, number];```<br>
@@ -31,6 +34,7 @@ Also using unknown type we should have to check the type before using it.
     // This is the flaw.
     ```
     ***You can apply any Array method to Tuple. That's why it destroys the supposed guarantees of tuple types.***
+    
 
 - PropTypes vs Interface:
     - Interface:
@@ -126,7 +130,20 @@ Also using unknown type we should have to check the type before using it.
     - used with @decoratorName   
     - when used with class it requires only one parameter i.e **contructor fn**
     - when used with method it requires 3 paramters: **class prototype,method name and descriptors**
-    - when used with paramter it requires 3 paramters: **class prototype,method name and index** // here method name in which method paramter is used and index denoted at which position is arguments in function             
+    - when used with paramter it requires 3 paramters: **class prototype,method name and index** // here method name in which method paramter is used and index denoted at which position is arguments in function       
+
+- **infer type** is used only in case of conditional type.
+    - **Syntax :**  
+    ```ts 
+    type ArrayElementType<T>= T extends (infer E)[]? E:T 
+    ```      
+    - **Example:**  
+    ```ts 
+    type TypeOne = ArrayElementType<string[]> 
+    ```   
+    ***Here answer will be inferred(E) as string as T will is of array type which return true then it will return E which will be inferred as string***
+
+- **The satisfies operator** is a feature in TypeScript that allows you to check if a given type satisfies a specific interface or condition    
               
 
 
