@@ -166,64 +166,64 @@ Also using unknown type we should have to check the type before using it.
     - ```Record<Keys,Type>```: This utility can be used to map the properties of a type to another type.
         ```ts
         interface CatInfo {
-        age: number;
-        breed: string;
+          age: number;
+          breed: string;
         }
 
         type CatName = "miffy" | "boris" | "mordred";
         
         const cats: Record<CatName, CatInfo> = {
-        miffy: { age: 10, breed: "Persian" },
-        boris: { age: 5, breed: "Maine Coon" },
-        mordred: { age: 16, breed: "British Shorthair" },
+            miffy: { age: 10, breed: "Persian" },
+            boris: { age: 5, breed: "Maine Coon" },
+            mordred: { age: 16, breed: "British Shorthair" },
         };
         ```   
     - ```Pick<Type, Keys>```: Constructs a type by picking the set of properties Keys (string literal or union of string literals) from Type.
         ```ts
         interface Todo {
-        title: string;
-        description: string;
-        completed: boolean;
+          title: string;
+          description: string;
+          completed: boolean;
         }
         
         type TodoPreview = Pick<Todo, "title" | "completed">;
         
         const todo: TodoPreview = {
-        title: "Clean room",
-        completed: false,
+          title: "Clean room",
+          completed: false,
         };
         ``` 
     - ```Omit<Type, Keys>```: Constructs a type by picking all properties from Type and then removing Keys (string literal or union of string literals).
         ```ts
         interface Todo {
-        title: string;
-        description: string;
-        completed: boolean;
-        createdAt: number;
+          title: string;
+          description: string;
+          completed: boolean;
+          createdAt: number;
         }
 
         type TodoPreview = Omit<Todo, "description">;
         
         const todo: TodoPreview = {
-        title: "Clean room",
-        completed: false,
-        createdAt: 1615544252770,
+          title: "Clean room",
+          completed: false,
+          createdAt: 1615544252770,
         };
         ```
     - ```Partial<Type>```: Constructs a type with all properties of Type set to optional. This utility will return a type that represents all subsets of a given type.
         ```ts
         interface Todo {
-        title: string;
-        description: string;
+          title: string;
+          description: string;
         }
 
-        function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
-        return { ...todo, ...fieldsToUpdate };
+        function updateTodo(todo: Todo,     fieldsToUpdate: Partial<Todo>) {
+           return { ...todo, ...fieldsToUpdate };
         }
         
         const todo1 = {
-        title: "organize desk",
-        description: "clear clutter",
+          title: "organize desk",
+          description: "clear clutter",
         };
         
         const todo2 = updateTodo(todo1, {
@@ -234,8 +234,8 @@ Also using unknown type we should have to check the type before using it.
     - ```Required<Type>```: Constructs a type consisting of all properties of Type set to required. The opposite of Partial.
         ```ts
         interface Props {
-        a?: number;
-        b?: string;
+          a?: number;
+          b?: string;
         }
 
         const obj: Props = { a: 5 };
@@ -247,11 +247,11 @@ Also using unknown type we should have to check the type before using it.
     - ```Readonly<Type>```: Constructs a type with all properties of Type set to readonly, meaning the properties of the constructed type cannot be reassigned.
         ```ts
         interface Todo {
-        title: string;
+          title: string;
         }
 
         const todo: Readonly<Todo> = {
-        title: "Delete inactive users",
+          title: "Delete inactive users",
         };
         
         todo.title = "Hello";
