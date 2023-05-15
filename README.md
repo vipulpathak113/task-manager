@@ -144,6 +144,126 @@ Also using unknown type we should have to check the type before using it.
     ***Here answer will be inferred(E) as string as T will is of array type which return true then it will return E which will be inferred as string***
 
 - **The satisfies operator** is a feature in TypeScript that allows you to check if a given type satisfies a specific interface or condition    
+    ```ts
+        type Keys = 'FirstName' |"LastName"| "age"|"school"
+
+        const student = {
+        FirstName: "Temitope",
+        LastName: "Oyedele",
+        age: 36,
+        school:"oxford",
+        }satisfies Record<Keys, string | number>;
+
+        student.age.toFixed();
+        student.school.toLowerCase();
+    ```
+
+- **Utility Types:**
+    - ```Awaited<Type>```: Used with Promises.
+        ```ts
+        type A = Awaited<Promise<string>>; // type A will be string 
+        ```
+    - ```Record<Keys,Type>```: This utility can be used to map the properties of a type to another type.
+        ```ts
+        interface CatInfo {
+        age: number;
+        breed: string;
+        }
+
+        type CatName = "miffy" | "boris" | "mordred";
+        
+        const cats: Record<CatName, CatInfo> = {
+        miffy: { age: 10, breed: "Persian" },
+        boris: { age: 5, breed: "Maine Coon" },
+        mordred: { age: 16, breed: "British Shorthair" },
+        };
+        ```   
+    - ```Pick<Type, Keys>```: Constructs a type by picking the set of properties Keys (string literal or union of string literals) from Type.
+        ```ts
+        interface Todo {
+        title: string;
+        description: string;
+        completed: boolean;
+        }
+        
+        type TodoPreview = Pick<Todo, "title" | "completed">;
+        
+        const todo: TodoPreview = {
+        title: "Clean room",
+        completed: false,
+        };
+        ``` 
+    - ```Omit<Type, Keys>```: Constructs a type by picking all properties from Type and then removing Keys (string literal or union of string literals).
+        ```ts
+        interface Todo {
+        title: string;
+        description: string;
+        completed: boolean;
+        createdAt: number;
+        }
+
+        type TodoPreview = Omit<Todo, "description">;
+        
+        const todo: TodoPreview = {
+        title: "Clean room",
+        completed: false,
+        createdAt: 1615544252770,
+        };
+        ```
+    - ```Partial<Type>```: Constructs a type with all properties of Type set to optional. This utility will return a type that represents all subsets of a given type.
+        ```ts
+        interface Todo {
+        title: string;
+        description: string;
+        }
+
+        function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+        return { ...todo, ...fieldsToUpdate };
+        }
+        
+        const todo1 = {
+        title: "organize desk",
+        description: "clear clutter",
+        };
+        
+        const todo2 = updateTodo(todo1, {
+        description: "throw out trash",
+        });    
+        ```
+    
+    - ```Required<Type>```: Constructs a type consisting of all properties of Type set to required. The opposite of Partial.
+        ```ts
+        interface Props {
+        a?: number;
+        b?: string;
+        }
+
+        const obj: Props = { a: 5 };
+        
+        const obj2: Required<Props> = { a: 5 };
+
+        Property 'b' is missing in type '{ a: number; }' but required in type 'Required<Props>'.
+        ```
+    - ```Readonly<Type>```: Constructs a type with all properties of Type set to readonly, meaning the properties of the constructed type cannot be reassigned.
+        ```ts
+        interface Todo {
+        title: string;
+        }
+
+        const todo: Readonly<Todo> = {
+        title: "Delete inactive users",
+        };
+        
+        todo.title = "Hello";
+        Cannot assign to 'title' because it is a read-only property.
+        ```  
+    - ```Extract<Type, Union>```: Common type from union to Type.
+        ```ts
+        type T0 = Extract<"a" | "b" | "c", "a" | "f">;
+        /// type T0 = "a"
+        ```      
+
+            
               
 
 
