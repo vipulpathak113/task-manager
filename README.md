@@ -1,8 +1,9 @@
 # Typescript
 
 - By default even if there is error in code compiler will convert ***.ts into .js file***. To prevent this from happening, we can configure in tsconfig.json **```noEmitOnError:true```**
-- **noImplicitAny: false** will disable error for any type. *It should be true*
-- **target:** In which format the ts file will be transpiled to js. Example: ```target:"es2015"```
+- **noImplicitAny: false** will disable error for **any** type. *It should be true*
+- **target:** In which format the ts file will be transpiled to js. Example: ```target:"es2015"```.It depends on where you are using it either in browser, react , node etc.
+- **lib**- depends on target. Also it means what library you want to include. By default most of libraries are included but if you explicitly write lib then you have to include libraries. Ex: **for react lib will include dom but for node it is not required.**
 - **Preferable to use unknown** type instead of **any type** as it is more strict.
 Also using unknown type we should have to check the type before using it.
 - **BigInt:**
@@ -12,7 +13,7 @@ Also using unknown type we should have to check the type before using it.
     - Cannot use **Math** object on BigInt
 
 
-![Typescript image](./typescriptTypes.jpeg) 
+![Typescript image](typescriptTypes.jpeg) 
 
 - **never** type means code terminates after that    
 - A **tuple** type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
