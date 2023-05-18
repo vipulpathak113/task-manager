@@ -46,6 +46,7 @@ export const TaskArea: FC = (): ReactElement => {
       id,
       status: Status.completed,
     });
+    console.log(e)
   };
 
   useEffect(() => {
