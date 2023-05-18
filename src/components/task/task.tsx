@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { ITask } from './interfaces/ITask';
 import { Priority } from '../createTaskForm/enums/Priority';
 import PropTypes from 'prop-types';
-// import { Status } from '../createTaskForm/enums/Status';
+import { Status } from '../createTaskForm/enums/Status';
 import { TaskDescription } from './_taskDescription';
 import { TaskFooter } from './_taskFooter';
 import { TaskHeader } from './_taskHeader';
@@ -17,9 +17,10 @@ export const Task: FC<ITask> = (props): ReactElement => {
     date = new Date(),
     description = 'Lorem ipsum dolor sit amet',
     priority = Priority.normal,
-    // status = Status.completed,
+    status = Status.completed,
     onStatusChange = (e) => console.log(e),
     onClick = (e) => console.log(e),
+    id,
   } = props;
 
   return (
@@ -41,6 +42,8 @@ export const Task: FC<ITask> = (props): ReactElement => {
       <TaskHeader title={title} date={date} />
       <TaskDescription description={description} />
       <TaskFooter
+        id={id}
+        status={status}
         onClick={onClick}
         onStatusChange={onStatusChange}
       />
